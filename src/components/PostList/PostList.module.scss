@@ -1,0 +1,48 @@
+.root {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+
+  .post {
+    max-width: 602px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+    padding: 24px;
+    background: rgb(239, 239, 239);
+
+    .header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      img {
+        max-width: 68px;
+      }
+    }
+
+    .reactions {
+      display: flex;
+      gap: 40px;
+
+      .like {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .dislike {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        svg {
+          rotate: 180deg;
+        }
+      }
+    }
+  }
+}
