@@ -1,0 +1,73 @@
+.root {
+  max-width: 602px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 24px;
+  padding: 24px;
+  background: rgb(243, 243, 243);
+  border-radius: 12px;
+
+  .header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 26px;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+
+    img {
+      max-width: 68px;
+    }
+  }
+
+  .body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+  .reactions {
+    display: flex;
+    gap: 40px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #807e7e;
+
+    .like {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+    }
+
+    .dislike {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+
+      svg {
+        rotate: 180deg;
+      }
+    }
+  }
+
+  .views {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+}

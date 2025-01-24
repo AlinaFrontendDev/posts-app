@@ -9,7 +9,7 @@ export default function Home({}: Props) {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    axiosInstance.get("").then((res) => {
+    axiosInstance.get("/posts").then((res) => {
       setPosts(res.data.posts);
     });
   }, []);
