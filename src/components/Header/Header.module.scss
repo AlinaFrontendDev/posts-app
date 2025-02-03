@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 52px;
+  padding: 20px 52px;
+  margin-bottom: 52px;
 
   font-family: Figtree;
   font-size: 14px;
@@ -15,10 +16,10 @@
     gap: 40px;
     cursor: pointer;
 
-    .nav_item {
+    .item {
       color: #121212;
 
-      &:active {
+      &:focus {
         text-decoration: underline;
       }
     }

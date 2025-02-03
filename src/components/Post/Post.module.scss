@@ -2,10 +2,9 @@
   max-width: 602px;
   display: flex;
   flex-direction: column;
-  align-items: start;
   gap: 24px;
   padding: 24px;
-  background: rgb(243, 243, 243);
+  background: #fff;
   border-radius: 12px;
 
   .header {
@@ -37,37 +36,86 @@
     line-height: 26px;
   }
 
-  .reactions {
+  .bottom {
     display: flex;
-    gap: 40px;
+    justify-content: space-between;
 
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 20px;
-    color: #807e7e;
-
-    .like {
+    .reactions {
       display: flex;
-      align-items: center;
-      gap: 9px;
-      cursor: pointer;
+      gap: 40px;
+
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 20px;
+      color: #807e7e;
+
+      .like {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+
+      .dislike {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+
+        svg {
+          rotate: 180deg;
+        }
+      }
+
+      .comments {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        span {
+          margin-left: -5px;
+        }
+      }
     }
 
-    .dislike {
+    .views {
       display: flex;
       align-items: center;
       gap: 9px;
-      cursor: pointer;
-
-      svg {
-        rotate: 180deg;
-      }
     }
   }
 
-  .views {
+  .comments_body {
     display: flex;
-    align-items: center;
-    gap: 9px;
+    flex-direction: column;
+    gap: 10px;
+    background: #e4e4e4;
+    padding: 10px;
+    border-radius: 12px;
+
+    .comment {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: #fff;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 10px;
+      align-items: flex-start;
+
+      h4 {
+        font-weight: 700;
+      }
+    }
+
+    .comment_like {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #e4e4e4;
+      border-radius: 25px;
+      padding: 3px 10px;
+    }
   }
 }

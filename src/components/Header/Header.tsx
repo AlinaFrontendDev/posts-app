@@ -1,27 +1,28 @@
-import React from "react";
-import style from "./Header.module.scss";
-import profile from "../../assets/img/profile.svg";
+import st from "./Header.module.scss";
 import logo from "../../assets/img/logo.svg";
-import search from "../../assets/img/search.svg";
 import { Link } from "react-router";
+import { User } from "../../types";
 
-type Props = {};
+type Props = {
+  profile: User | null;
+};
 
-function Header({}: Props) {
+function Header({ profile }: Props) {
   return (
-    <div className={style.root}>
+    <div className={st.root}>
       <img src={logo} alt="" />
-      <nav className={style.nav}>
-        <Link to="/" className={style.nav_item}>
+      <nav className={st.nav}>
+        <Link to="/" className={st.item}>
           Home
         </Link>
-        <Link to="/contact" className={style.nav_item}>
+        <Link to="/contact" className={st.item}>
           Contact
         </Link>
       </nav>
-      <div className={style.right}>
-        <img src={search} alt="" />
-        <img src={profile} alt="" />
+      <div className={st.right}>
+        <Link to="/profile/1">
+          <img src={profile?.image} alt="" />
+        </Link>
       </div>
     </div>
   );
