@@ -38,4 +38,26 @@
       font-size: 12px;
     }
   }
+
+  .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button{
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+      padding: 15px 0;
+      border-radius: 10px;
+      background: #0BAACA;
+      color: #fff;
+    }
+    
+    .cancel{
+      border: 1px solid #0BAACA;
+      color: #0BAACA;
+      background: transparent;
+    }
+  }
 }

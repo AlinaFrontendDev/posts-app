@@ -47,6 +47,7 @@ export default function PostItem({ item }: Props) {
           <p> {user.company.name} </p>
         </div>
       </div>
+      <div className={st.title}>{item.title}</div>
       <div className={st.body}>{item.body}</div>
       <div className={st.bottom}>
         <div className={st.reactions}>

@@ -93,3 +93,17 @@ export type Comment = {
     fullName: string;
   };
 };
+
+
+export const sortOrder = {
+  title: "asc",
+  body: "asc",
+  views: 'desc'
+}
+
+export enum Sort {
+  title = "title",
+  body = "body",
+  views = "views",
+  default = ''
+}

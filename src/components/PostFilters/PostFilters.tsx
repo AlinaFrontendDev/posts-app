@@ -2,10 +2,38 @@ import { useEffect, useState } from "react";
 import st from "./PostFilters.module.scss";
 import axiosInstance from "../../axiosinstance";
 
-type Props = {};
+type Props = {
+  setSearch: (value:string) => void;
+  setSort: (value:string) => void;
+  setCategory: (value:string) => void
+};
 
-export default function PostFilters({}: Props) {
+export default function PostFilters({setSearch, setSort, setCategory}: Props) {
   const [tags, setTags] = useState<string[]>([]);
+  const [formValues, setFormValues] = useState<{search: string, sort: string, category: string}>({search: '', sort: '', category:''});
+
+  function handleChange (event: React.SyntheticEvent) {
+    const elem = event.target as HTMLInputElement;
+    const value = elem.value;
+    const name = elem.name;
+
+    setFormValues((prev) => ({
+      ...prev, [name]: value
+    }))
+  }
+
+  function clearFilters() {
+    setSearch('');
+    setSort('');
+    setCategory('');
+    setFormValues({search: '', sort: '', category:''})
+  }
+
+  function applyFilters() {
+    setSearch(formValues.search);
+    setSort(formValues.sort);
+    setCategory(formValues.category);
+  }
 
   useEffect(() => {
     axiosInstance.get(`/posts/tag-list`).then((res) => {
@@ -16,7 +44,7 @@ export default function PostFilters({}: Props) {
   return (
     <div className={st.root}>
       <div className={st.search}>
-        <input type="text" placeholder="Search posts..." />
+        <input type="text" placeholder="Search posts..." name="search" value={formValues.search} onChange={handleChange}/>
         <svg
           width="20"
           height="20"
@@ -34,21 +62,25 @@ export default function PostFilters({}: Props) {
       </div>
       <div className={st.sort}>
         <p>Sort by:</p>
-        <select name="" id="">
-          <option value="default">default</option>
-          <option value="likes">likes</option>
-          <option value="comments">comments</option>
+        <select id="" name="sort" value={formValues.sort} onChange={handleChange}>
+          <option value="">default</option>
+          <option value="title">title</option>
+          <option value="body">body</option>
           <option value="views">views</option>
         </select>
       </div>
       <div className={st.sort}>
         <p>Select category:</p>
-        <select name="" id="">
-          <option value="default">default</option>
+        <select name="category" value={formValues.category} onChange={handleChange} id="">
+          <option value="">default</option>
           {tags.slice(0, 10).map((item) => (
             <option value={item}>{item}</option>
           ))}
         </select>
+      </div>
+      <div className={st.buttons}>
+        <button onClick={applyFilters}>Apply</button>
+        <button className={st.cancel} onClick={clearFilters}>Cancel</button>
       </div>
     </div>
   );
